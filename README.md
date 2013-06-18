@@ -1,3 +1,3 @@
 gwzz.github.io
 ==============
-This is a blog belonged to gwzz.
+This is a blog of Gwzz.
