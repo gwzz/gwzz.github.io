@@ -1,15 +1,28 @@
 safe:        false
-port: 4000
+safe:        false
+watch:       false    # deprecated
+server:      false    # deprecated
+host:        0.0.0.0
+port:        4000
+baseurl:     /
+url:         http://localhost:4000
+#port: 4000
 
 source:      .
 destination: ./_site
 plugins:     ./_plugins
+layouts:     ./_layouts
 
 future:      true
 lsi:         false
 pygments:    true
 markdown:    rdiscount
 permalink:   pretty
+
+#use through site.
+name: "GWZZ"
+description: "GWZZ's Blog"
+
 
 rdiscount:
   extensions: []
