@@ -1,5 +1,4 @@
 safe:        false
-safe:        false
 watch:       false    # deprecated
 server:      false    # deprecated
 host:        0.0.0.0
@@ -18,9 +17,10 @@ lsi:         false
 pygments:    true
 markdown:    rdiscount
 permalink:   pretty
+paginate:    10
 
 #use through site.
-name: "GWZZ"
+name:        "GWZZ"
 description: "GWZZ's Blog"
 
 
