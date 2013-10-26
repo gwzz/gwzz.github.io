@@ -24,6 +24,12 @@ paginate:    10
 name:        "GWZZ"
 description: "GWZZ's Blog"
 
+gravatar:
+    default_image: mm
+    size: 20
+    rating: g
+    secure: true
+    force: y
 
 rdiscount:
   extensions: []
