@@ -1,6 +1,4 @@
 safe:        false
-watch:       false    # deprecated
-server:      false    # deprecated
 host:        0.0.0.0
 port:        4000
 baseurl:     /
@@ -23,13 +21,6 @@ paginate:    10
 #use through site.
 name:        "GWZZ"
 description: "GWZZ's Blog"
-
-gravatar:
-    default_image: mm
-    size: 20
-    rating: g
-    secure: true
-    force: y
 
 rdiscount:
   extensions: []
