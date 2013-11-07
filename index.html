@@ -5,11 +5,14 @@ title: My Blog
 <ul>
 	{% for post in paginator.posts %}
 	<div class="row-fluid">
-		<div class="span9">
+		<div class="span12">
+      <article class="post">
 		    <h4>{{ post.date | date: "%m-%d-%Y" }}</h4>
 		    <h2>
 		      <a href="{{ post.url }}">{{ post.title | truncatewords: 10 | capitalize }}</a>
 		    </h2>
+        {{ post.content}}
+      </article>
 		</div>
 	</div>
 	{% endfor %}
@@ -17,7 +20,7 @@ title: My Blog
 
 <!-- <code bellow used for more than 10 posts, split to several pages> -->
 <div class="row-fluid">
-  <div class="span9">
+  <div class="span12">
     <div class="pagination">
       <ul>
         {% if paginator.previous_page %}
