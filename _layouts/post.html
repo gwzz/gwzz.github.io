@@ -6,9 +6,11 @@
 		  {% include sidebar.html %}
 		</div>
 		<div class="span9">
-		  <h2>{{ page.title }}</h2>
-		  <p class="muted">{{ page.date | date_to_long_string }}</p>
-		  {{ content }}
+			<article class="post">
+			  <h2>{{ page.title }}</h2>
+			  <p class="muted">{{ page.date | date_to_long_string }}</p>
+			  	{{ content }}
+     		</article>
 		</div>
 	</div>
 </div>
