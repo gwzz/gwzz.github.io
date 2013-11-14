@@ -21,7 +21,8 @@ end
 desc "Generate and publish blog to gh-pages"
 task :publish => [:generate] do
   Dir.mktmpdir do |tmp|
-    cp_r "_site/.", tmp
+    system "mv _site/* #{tmp}/"
+    system "echo yolo"
     system "rm -rf _site/."
     system "git checkout master"
     system "rm -rf ."
