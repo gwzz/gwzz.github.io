@@ -23,7 +23,7 @@ task :publish => [:generate] do
   Dir.mktmpdir do |tmp|
     cp_r "_site/.", tmp
     system "mv _site/. #{tmp}"
-    system "git checkout -b master"
+    system "git checkout master"
     system "rm -rf ."
     system "mv #{tmp}/. ."
     message = "Site updated at #{Time.now.utc}"
