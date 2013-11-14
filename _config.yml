@@ -24,3 +24,5 @@ description: "GWZZ's Blog"
 
 rdiscount:
   extensions: []
+
+exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile', 'README.md']
