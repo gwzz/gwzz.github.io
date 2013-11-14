@@ -2,3 +2,4 @@ _site
 .DS_Store
 examples
 .rvmrc
+._site
