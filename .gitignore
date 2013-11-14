@@ -3,3 +3,4 @@ _site
 examples
 .rvmrc
 ._site
+.Rakefile
