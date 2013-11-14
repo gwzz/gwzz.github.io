@@ -1,0 +1,18 @@
+{% include header.html %}
+
+<div class="row-fluid">
+	<div class="row-fluid">
+		<div class="span3">
+		  {% include sidebar.html %}
+		</div>
+		<div class="span9">
+			<article class="post">
+			  <h2>{{ page.title }}</h2>
+			  <p class="muted">{{ page.date | date_to_long_string }}</p>
+			  	{{ content }}
+     		</article>
+		</div>
+	</div>
+</div>
+
+{% include footer.html %}
