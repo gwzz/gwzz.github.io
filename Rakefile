@@ -22,7 +22,6 @@ desc "Generate and publish blog to gh-pages"
 task :publish => [:generate] do
   Dir.mktmpdir do |tmp|
     cp_r "_site/.", tmp
-    system "mv _site/* #{tmp}"
     system "git checkout master"
     system "rm -rf ."
     system "mv #{tmp}/. ."
