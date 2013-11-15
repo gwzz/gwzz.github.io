@@ -1,0 +1,37 @@
+---
+title: Emacs+auto-complete+clang.html
+layout: post
+---
+
+<h2>Emacs + auto-complete + clang</h2>
+<p>
+	{% highlight cl linenos%}
+		(require 'auto-complete-clang)
+		(setq ac-clang-auto-save t)  
+		(setq ac-auto-start t)  
+		(setq ac-quick-help-delay 0.5)  
+		;; (ac-set-trigger-key "TAB")  
+		;; (define-key ac-mode-map  [(control tab)] 'auto-complete)  
+		(define-key ac-mode-map  [(control tab)] 'auto-complete)  
+		(defun my-ac-config ()  
+		  (setq ac-clang-flags  
+		        (mapcar(lambda (item)(concat "-I" item))  
+		               (split-string  
+		                "  
+		 /usr/llvm-gcc-4.2/bin/../lib/gcc/i686-apple-darwin11/4.2.1/include
+		 /usr/include/c++/4.2.1
+		 /usr/include/c++/4.2.1/backward
+		 /usr/local/include
+		 /Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2/lib/gcc/i686-apple-darwin11/4.2.1/include
+		 /usr/include
+		 /System/Library/Frameworks (framework directory)
+		 /Library/Frameworks (framework directory)
+		")))  
+		  (setq-default ac-sources '(ac-source-abbrev ac-source-dictionary ac-source-words-in-same-mode-buffers))   
+		  (global-auto-complete-mode t))  
+		(defun my-ac-cc-mode-setup ()  
+		  (setq ac-sources (append '(ac-source-clang ac-source-yasnippet) ac-sources)))  
+		;; ac-source-gtags  
+		(my-ac-config)  
+	{% endhighlight%}
+</p>
