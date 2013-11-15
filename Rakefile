@@ -30,7 +30,7 @@ task :publish => [:generate] do
     system "git commit -am #{message.shellescape}"
     system "git push origin master --force"
     system "git checkout source"
-    system "echo yolo"
+    system "echo Success!"
     #system "git remote add origin git@github.com:#{GITHUB_REPONAME}.git"
   end
 end
