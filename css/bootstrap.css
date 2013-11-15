@@ -10,6 +10,8 @@
  
  .top-img{
   width: 100%;
+  position:repeat;
+  text-align: center;
  }
 #wrapper-area {
   min-height:100%;
