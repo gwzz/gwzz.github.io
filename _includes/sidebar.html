@@ -10,3 +10,12 @@
 	  {% endfor %}
 	</ul>
 </div>
+<div class="container-sidebar">
+	<h4>Category</h4>
+	<ul>
+	    {% for category in site.categories %}
+	    <li><a href="/categories/{{ category | first }}/" title="view allposts">{{ category | first }} ({{ category | last | size }})</a>
+	    </li>
+	    {% endfor %}
+	</ul>
+</div>
