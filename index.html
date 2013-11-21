@@ -10,6 +10,7 @@ title: My Blog
                     <p class="date"><time pubdate="{{ rpost.date }}">{{ rpost.date | date_to_string }}</time></p>
                     <p>{{ rpost.description }}</p>
                     <p class="more"><a href="{{ rpost.url }}" title="Read More" rel="nofollow"><span>&#10149;</span>Read More</a></p>
+                    <p class="more"><a href="{{ rpost.url }}#disqus_thread">Link.</a></p>
                 </article>
             {% endfor %}
             {% if paginator.total_pages > 1 %}

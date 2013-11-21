@@ -35,6 +35,8 @@ description:      "This is GWZZ's Blog "
 
 style: 			  /css/style.css
 
+disqus:           gwzzblog
+
 rdiscount:
   extensions: []
 
