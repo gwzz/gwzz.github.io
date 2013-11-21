@@ -1,18 +1,19 @@
-{% include header.html %}
-
-<div class="row-fluid">
-	<div class="row-fluid">
-		<div class="span3">
-		  {% include sidebar.html %}
-		</div>
-		<div class="span9">
-			<article class="post">
-			  <h2>{{ page.title }}</h2>
-			  <p class="muted">{{ page.date | date_to_long_string }}</p>
-			  	{{ content }}
-     		</article>
-		</div>
-	</div>
+---
+layout: default
+---
+<div class="main fn-clear">
+	<article class="entry">
+		<h1 class="title">{{ page.title }}</h1>
+       	<p class="meta"><time class="date" pubdate="{{ page.date | date_to_utc | date: '%Y-%m-%d' }}">{{ page.date | date_to_string }}</time> By <a href="/about" class="author" title="author">{{ site.author.name }}</a><g:plusone size="small"></g:plusone></p>
+       	<p class="description">{{ page.description }}</p>
+		 	{{ content }}
+        <nav class="pagination-link">
+            {% if page.previous %}
+            <a class="prev" href="{{ page.previous.url }}" rel="bookmark">&laquo;&nbsp;{{ page.previous.title | truncatewords:5 }}</a>
+            {% endif %}
+            {% if page.next %}
+            <a class="next" href="{{ page.next.url }}" rel="bookmark">{{ page.next.title | truncatewords:5 }}&nbsp;&raquo;</a>
+            {% endif %}
+         </nav>
+	</article><!-- .entry -->		
 </div>
-
-{% include footer.html %}

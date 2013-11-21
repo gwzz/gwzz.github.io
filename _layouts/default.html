@@ -1,15 +1,28 @@
-
-{% include header.html %}
-
-  <div class="row-fluid">
-		<div class="row-fluid">
-			<div class="span3">
-			  {% include sidebar.html %}
-			</div>
-			<div class="span9">
-			  {{ content }}
-			</div>
-		</div>
-  </div>
-
-{% include footer.html %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="generator" content="Jekyll" />
+  <meta name="author" content="{{ site.author.name }}" />
+  <meta name="description" content="{{ site.descripton }}" />
+  <link rel="stylesheet" href="{{ site.style }}" type="text/css" />
+  <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+  <link rel="alternate" type="application/atom+xml" title="Recent Entries" href="{{ site.feed }}" />
+  <link rel="shortcut icon" href="/blog/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    {% include head.html %} 
+  <section id="content">
+    <article id="contenter">
+      <section class="content">
+          <div class="content-cnt fn-clear">
+            {{ content }}
+            {% include side.html%}
+          </div>
+      </section>
+    </article>
+  </section>
+    {% include foot.html %}
+</body>
+</html>

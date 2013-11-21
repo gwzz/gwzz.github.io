@@ -20,7 +20,19 @@ paginate:    10
 
 #use through site.
 name:        "GWZZ"
-description: "GWZZ's Blog"
+blogName:    "GWZZ's Blog"
+description: "This is GWZZ's Blog "
+author:
+    name:         GWZZ
+    email:        zhucyw@gmail.com
+description:      "This is GWZZ's Blog "
+
+about: 			  "I am GWZZ."
+follow:
+    github:       https://github.com/gwzz
+description:      "This is GWZZ's Blog "
+
+style: 			  "/css/style.css"
 
 rdiscount:
   extensions: []
