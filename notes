@@ -23,3 +23,11 @@ http://www.dot.tk
 欲诚其意者，先致其知；致知在格物。物格而后知至，知至而后意诚
 
 What hurts more, the pain of hard work or the pain of regret?
+
+
+
+``` ruby ///define what language below, highlight
+  def index 
+  puts "hello world" 
+  end 
+```
