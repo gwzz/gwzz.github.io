@@ -56,7 +56,7 @@ body                        { background: url(/assets/img/body-bg.jpg) repeat 0 
                 layout
 --------------------------------------------*/
 /** head **/
-.head                       { padding: 5px 0 4px 0; height: 71px; width: 100%; background: #36393e url(/assets/img/bg.png) repeat 0 0; box-shadow: 2px 2px 4px #ababab; }
+.head                       { position: fixed; top: 0; right: 0; left: 0; z-index: 1030; margin-top: 0; padding: 5px 0 4px 0; height: 71px; width: 100%; background: #36393e url(/assets/img/bg.png) repeat 0 0; box-shadow: 2px 2px 4px #ababab; }
 .header                     { border-top: 1px dashed #a0a0a0; border-bottom: 1px dashed #aaa; height: 69px; }
 .header-cnt                 { width: 900px; height: 54px; padding-top: 15px; margin: 0 auto; position: relative; }
 .header-cnt .logo           { padding: 4px 4px; height: 80px; background: #2f3133; border-radius: 0 0 14px 14px; position: absolute; top: -5px; left: 0; text-align: center; box-shadow: -1px -1px 2px #333 inset; box-shadow: 0px 0px 5px #272c32; }
