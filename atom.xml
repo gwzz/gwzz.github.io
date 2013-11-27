@@ -1,27 +1,27 @@
 ---
-layout: null
+layout: nil
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  
-   <title>{{ site.title }}</title>
-   <link href="{{ site.production_url }}{{ site.feed }}" rel="self" type="application/atom+xml"/>
-   <link href="{{ site.production_url }}" rel="alternate" type="text/html" />
-   <updated>{{ site.time | date_to_xmlschema }}</updated>
-   <id>{{ site.production_url }}</id>
-   <author>
-     <name>{{ site.author.name }}</name>
-     <email>{{ site.author.email }}</email>
-   </author>
-
-   {% for post in site.posts limit:10 %}
+ <title>{{ site.site-title }}</title>
+ <link href="http://{{ site.githubusername }}.github.io/atom.xml" rel="self"/>
+ <link href="http://{{ site.githubusername }}.github.io/"/>
+ <updated>{{ site.time | date_to_xmlschema }}</updated>
+ <id>http://{{ site.githubusername }}.github.io/</id>
+ <author>
+   <name>{{ site.site-title }}</name>
+   <email>{{ site.bio-email-address }}</email>
+ </author>
+ 
+ {% for post in site.posts %}
    <entry>
      <title>{{ post.title }}</title>
-     <link href="{{ site.production_url }}{{ post.url }}"/>
+     <link href="http://{{ site.githubusername }}.github.io{{ post.url }}"/>
      <updated>{{ post.date | date_to_xmlschema }}</updated>
-     <id>{{ site.production_url }}{{ post.id }}</id>
+     <id>http://{{ site.githubusername }}.github.io{{ post.id }}</id>
      <content type="html">{{ post.content | xml_escape }}</content>
    </entry>
-   {% endfor %}
+ {% endfor %}
  
 </feed>
