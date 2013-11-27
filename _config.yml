@@ -3,7 +3,8 @@ host:        0.0.0.0
 port:        4000
 baseurl:     /
 #url:         http://localhost:4000
-#production_url : http://gwzz.github.io
+production_url: http://gwzz.github.io
+feed:           /atom.xml
 #port: 4000
 
 source:      .
