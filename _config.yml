@@ -4,6 +4,7 @@ port:        4000
 baseurl:     /
 #url:         http://localhost:4000
 githubusername: gwzz
+feedburnerusername: gwzzwei
 #port: 4000
 
 source:      .
