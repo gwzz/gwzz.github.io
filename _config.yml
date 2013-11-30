@@ -32,6 +32,7 @@ description:      "This is GWZZ's Blog "
 about: 			  "I am GWZZ, a Ph.D student in computer science at CASE."
 follow:
     github:       https://github.com/gwzz
+    feed:         http://feeds.feedburner.com/gwzzwei
 description:      "This is GWZZ's Blog "
 
 style: 			  /css/style.css
