@@ -236,3 +236,5 @@ body                        { background: url(/assets/img/body-bg.jpg) repeat 0 
 .img-box .thumb             {max-height: 20em; max-width: 20em;}
 .img-box .desc              {line-height: 20px; color: #e8e8e8; font-family: Georgia; }
 
+.gallery-image-wrapper      {float: left; margin: 20px 8px 0 8px; width: 24em; height:16em; text-align: center; padding: 1em 0 1em 0;}
+.gallery-image              {margin: auto; position: relative; top: 0px; bottom: 0px; max-height: 100%; max-width: 100%;}
