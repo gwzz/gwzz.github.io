@@ -1,0 +1,18 @@
+---
+layout: default
+title: Gallery
+---
+<div class="main fn-clear">
+	<div class="galleries">
+		<h4 class="page-title">Photography can not record everything.&nbsp;&nbsp;&nbsp;</h4>
+		{% for gallery in page.galleries %}
+		<article class="img-box">
+		    <a  href="{{ gallery['gallery'] }}">
+		        <img  class="thumb" src="{{ gallery['gallery'] }}/thumbs/{{ gallery['best_image'] }}">
+		    </a>
+		    <h3><p class="title" href="{{ gallery['gallery'] }}">{{ gallery["name"] }}</p></h3>
+		    <p class="desc">{{ gallery["images"] | size }} images</p>
+		</article>
+		{% endfor %}
+  </div>
+</div>
