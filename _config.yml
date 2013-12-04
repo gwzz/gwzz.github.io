@@ -60,7 +60,8 @@ gallery:
   # custom configuration for individual gallery
   # best_image is image for the index page (defaults to last image)
   galleries:
-    best:
-      best_image: snaileo_gonzales.jpg
+    test:
+      best_image: test.jpg
+
 
 exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile', 'README.md']

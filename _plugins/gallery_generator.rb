@@ -42,6 +42,7 @@ module Jekyll
       @dir = @dest_dir
       @name = "index.html"
       @images = []
+      @model =[]
 
       best_image = nil
       max_size_x = 400
