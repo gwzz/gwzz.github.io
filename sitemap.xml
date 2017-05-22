@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://gwzz.me/archives/index.html</loc>
+    
+    <lastmod>2017-05-22T00:58:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://gwzz.me/about/index.html</loc>
+    
+    <lastmod>2017-05-22T00:58:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://gwzz.me/categories/index.html</loc>
+    
+    <lastmod>2017-05-22T00:57:23.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://gwzz.me/tags/index.html</loc>
     
     <lastmod>2017-05-17T18:52:41.000Z</lastmod>
