@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hello world," />
+  <meta name="keywords" content="spark,scala,SBT," />
 
 
 
@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="This is the first post of my blog. Just like the classic program’s first output. “Hello World!” is also what I want to say to the world. This blog uses hexo and is deployed on the github pages. Why I">
-<meta name="keywords" content="hello world">
+<meta name="description" content="This post introduces the SBT tools for building scala projects.">
+<meta name="keywords" content="spark,scala,SBT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://gwzz.me/hello-world.html">
+<meta property="og:title" content="Create_spark_app_use_sbt">
+<meta property="og:url" content="http://gwzz.me/create-spark-app-use-sbt.html">
 <meta property="og:site_name" content="gwzz&#39;s blog">
-<meta property="og:description" content="This is the first post of my blog. Just like the classic program’s first output. “Hello World!” is also what I want to say to the world. This blog uses hexo and is deployed on the github pages. Why I">
-<meta property="og:updated_time" content="2017-06-07T20:21:21.000Z">
+<meta property="og:description" content="This post introduces the SBT tools for building scala projects.">
+<meta property="og:updated_time" content="2017-06-07T20:09:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="This is the first post of my blog. Just like the classic program’s first output. “Hello World!” is also what I want to say to the world. This blog uses hexo and is deployed on the github pages. Why I">
+<meta name="twitter:title" content="Create_spark_app_use_sbt">
+<meta name="twitter:description" content="This post introduces the SBT tools for building scala projects.">
 
 
 
@@ -128,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://gwzz.me/hello-world.html"/>
+  <link rel="canonical" href="http://gwzz.me/create-spark-app-use-sbt.html"/>
 
 
 
 
 
-  <title>Hello World | gwzz's blog</title>
+  <title>Create_spark_app_use_sbt | gwzz's blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -274,7 +274,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://gwzz.me/hello-world.html">
+    <link itemprop="mainEntityOfPage" href="http://gwzz.me/create-spark-app-use-sbt.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="gwzz">
@@ -291,7 +291,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">Create_spark_app_use_sbt</h1>
         
 
         <div class="post-meta">
@@ -303,8 +303,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-15T21:24:56-04:00">
-                05-15-2017
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-23T23:53:03-04:00">
+                05-23-2017
               </time>
             
 
@@ -322,9 +322,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/hello-world.html#comments" itemprop="discussionUrl">
+                <a href="/create-spark-app-use-sbt.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="hello-world.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="create-spark-app-use-sbt.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -349,10 +349,30 @@
       
 
       
-        <p>This is the first post of my blog. Just like the classic program’s first output. “Hello World!” is also what I want to say to the world. This blog uses <strong>hexo</strong> and is deployed on the <strong>github</strong> pages.</p>
-<p>Why I create this blog? Write down what I learned, share what I thought useful, record something needs to be backup, and show something interesting.</p>
-<p>Currently, there are only common posts and galleries in this blog. The contents of my blog are rare. However, I am keeping adding things now.</p>
-<p>I will keep going modify this file as the contents and structure of this blog changes.</p>
+        <p>This post introduces the SBT tools for building scala projects.</p>
+<a id="more"></a>
+<h2 id="What-is-SBT"><a href="#What-is-SBT" class="headerlink" title="What is SBT?"></a>What is SBT?</h2><p>sbt is an open source build tool for Scala and Java projects, similar to Java’s Maven or Ant.</p>
+<p>Its main features are:</p>
+<ul>
+<li>native support for compiling Scala code and integrating with many Scala test frameworks</li>
+<li>build descriptions written in Scala using a DSL</li>
+<li>dependency management using Ivy (which supports Maven-format repositories)</li>
+<li>continuous compilation, testing, and deployment</li>
+<li>integration with the Scala interpreter for rapid iteration and debugging</li>
+<li>support for mixed Java/Scala projects</li>
+</ul>
+<p>sbt is the de facto build tool in the Scala community， used by the Lift web framework and Play Framework.</p>
+<h2 id="Install-SBT"><a href="#Install-SBT" class="headerlink" title="Install SBT"></a>Install SBT</h2><p>Use <a href="https://brew.sh/" title="Homebrew" target="_blank" rel="external">Homebrew</a> (for Mac)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install sbt</div></pre></td></tr></table></figure>
+<p>or</p>
+<p><a href="http://www.scala-sbt.org/download.html" title="sbt" target="_blank" rel="external">Download</a> ZIP or TGZ package from offcial site, and expand it (for other platforms).</p>
+<h2 id="SBT-new-command"><a href="#SBT-new-command" class="headerlink" title="SBT new command"></a>SBT new command</h2><p>The below tutorial assumes you`ve installed sbt 0.13.13 or later.</p>
+<p>If you’re using sbt 0.13.13 or later, you can use sbt new command to quickly setup a simple Hello world build. Type the following command to the terminal.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sbt new sbt/scala-seed.g8</div><div class="line">....</div><div class="line">Minimum Scala build.</div><div class="line"></div><div class="line">name [My Something Project]: hello</div><div class="line"></div><div class="line">Template applied in ./hello</div></pre></td></tr></table></figure>
+<p>When prompted for the project name, type your project name. For example, hello. This will create a new project under a directory named hello.</p>
+<h2 id="Running-app"><a href="#Running-app" class="headerlink" title="Running app"></a>Running app</h2><p>Now from inside the hello directory, start sbt and type run at the sbt shell. On Linux or OS X the commands might look like this:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> cd hello</div><div class="line"><span class="meta">$</span> sbt</div><div class="line">...</div><div class="line"><span class="meta">&gt;</span> run</div><div class="line">...</div><div class="line">[info] Compiling 1 Scala source to /xxx/hello/target/scala-2.12/classes...</div><div class="line">[info] Running example.Hello</div><div class="line">hello</div></pre></td></tr></table></figure></p>
+<p>We will see more tasks later.</p>
+<h2 id="Exiting-sbt-shell"><a href="#Exiting-sbt-shell" class="headerlink" title="Exiting sbt shell"></a>Exiting sbt shell</h2><p>To leave sbt shell, type exit or use Ctrl+D (Unix) or Ctrl+Z (Windows).<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span> exit</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -381,7 +401,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>Post link:</strong>
-      <a href="http://gwzz.me/hello-world.html" title="Hello World">http://gwzz.me/hello-world.html</a>
+      <a href="http://gwzz.me/create-spark-app-use-sbt.html" title="Create_spark_app_use_sbt">http://gwzz.me/create-spark-app-use-sbt.html</a>
     </li>
     <li class="post-copyright-license">
       <strong>Copyright Notice: </strong>
@@ -397,7 +417,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hello-world/" rel="tag"># hello world</a>
+            <a href="/tags/spark/" rel="tag"># spark</a>
+          
+            <a href="/tags/scala/" rel="tag"># scala</a>
+          
+            <a href="/tags/SBT/" rel="tag"># SBT</a>
           
         </div>
       
@@ -410,14 +434,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/Spark-X-AWS-EC.html" rel="next" title="Run Spark Application on AWS EC2 Cluster">
+                <i class="fa fa-chevron-left"></i> Run Spark Application on AWS EC2 Cluster
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Spark-X-AWS-EC.html" rel="prev" title="Run Spark Application on AWS EC2 Cluster">
-                Run Spark Application on AWS EC2 Cluster <i class="fa fa-chevron-right"></i>
+              <a href="/sphere-log-in-latex.html" rel="prev" title="Sphere_log_in_latex">
+                Sphere_log_in_latex <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -473,8 +501,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -553,6 +590,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-SBT"><span class="nav-number">1.</span> <span class="nav-text">What is SBT?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-SBT"><span class="nav-number">2.</span> <span class="nav-text">Install SBT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SBT-new-command"><span class="nav-number">3.</span> <span class="nav-text">SBT new command</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Running-app"><span class="nav-number">4.</span> <span class="nav-text">Running app</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exiting-sbt-shell"><span class="nav-number">5.</span> <span class="nav-text">Exiting sbt shell</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -690,9 +743,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://gwzz.me/hello-world.html';
-          this.page.identifier = 'hello-world.html';
-          this.page.title = 'Hello World';
+          this.page.url = 'http://gwzz.me/create-spark-app-use-sbt.html';
+          this.page.identifier = 'create-spark-app-use-sbt.html';
+          this.page.title = 'Create_spark_app_use_sbt';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://gwzzblog.disqus.com/embed.js';
