@@ -129,8 +129,10 @@ npm run dev
 
 Visit `http://localhost:3000`, and you should see an interactive 3D graph spinning in space!
 
-Exapmple screenshot:
+## 📷 Exapmple screenshot:
+
 ![A knowledge graph example.](graph-fg3.png "Knowledge Graph Example")
+
 ---
 
 ## 🧩 Challenges and Considerations
