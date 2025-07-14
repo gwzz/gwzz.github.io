@@ -16,3 +16,8 @@ disqusShortname = "placeholder"
 
 [pagination]
 pagerSize = 5
+
+# Add google analytics measurement ID here
+[services]
+  [services.googleAnalytics]
+    id = 'G-LZ0KGRH9DG'
