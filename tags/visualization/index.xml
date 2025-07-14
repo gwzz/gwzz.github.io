@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Visualization on Gwzz Blog Site</title><link>https://gwzz.github.io/tags/visualization/</link><description>Recent content in Visualization on Gwzz Blog Site</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 11 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://gwzz.github.io/tags/visualization/index.xml" rel="self" type="application/rss+xml"/><item><title>Graph Visualization</title><link>https://gwzz.github.io/p/graph-visualization/</link><pubDate>Fri, 11 Jul 2025 00:00:00 +0000</pubDate><guid>https://gwzz.github.io/p/graph-visualization/</guid><description>&lt;img src="https://gwzz.github.io/p/graph-visualization/graph-fg3.png" alt="Featured image of post Graph Visualization" />&lt;p>Sure! Here&amp;rsquo;s a well-structured and engaging blog post that explains your GitHub project, focusing on integrating &lt;code>force-graph-3d&lt;/code> into a &lt;strong>Next.js&lt;/strong> project. The tone is informative and approachable — suitable for developers interested in 3D visualization or knowledge graphs.&lt;/p>
+&lt;hr>
+&lt;h1 id="integrating-force-graph-3d-into-a-nextjs-project-a-simple-demo">Integrating &lt;code>force-graph-3d&lt;/code> into a Next.js Project: A Simple Demo
+&lt;/h1>&lt;p>If you&amp;rsquo;re exploring ways to visualize knowledge graphs or network data in 3D using React and Next.js, you&amp;rsquo;ve probably come across the popular library &lt;a class="link" href="https://github.com/vasturiano/force-graph" target="_blank" rel="noopener"
+>&lt;strong>&lt;code>force-graph&lt;/code>&lt;/strong>&lt;/a> by &lt;a class="link" href="https://github.com/vasturiano" target="_blank" rel="noopener"
+>@vasturiano&lt;/a>. In this post, I’ll walk through how I integrated &lt;strong>&lt;code>force-graph-3d&lt;/code>&lt;/strong> — its WebGL-based 3D force-directed graph implementation — into a &lt;strong>Next.js&lt;/strong> app as part of my ongoing &lt;strong>Knowledge Graph + LLM&lt;/strong> project.&lt;/p>
+&lt;p>You can check out the full code here:&lt;br>
+👉 &lt;a class="link" href="https://github.com/gwzz/Knowledge_Graph_X_LLM/tree/main/visulization/graph-visualization" target="_blank" rel="noopener"
+>GitHub - Knowledge_Graph_X_LLM / graph-visualization&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>⚠️ Note: This is more of a proof-of-concept/demo than a production-ready solution. There’s still work to be done before this can scale to large or complex graphs, but it’s a solid starting point!&lt;/p>&lt;/blockquote>
+&lt;hr>
+&lt;h2 id="-why-use-force-graph-3d">🎯 Why Use &lt;code>force-graph-3d&lt;/code>?
+&lt;/h2>&lt;p>&lt;code>force-graph-3d&lt;/code> offers an interactive and performant way to render large-scale 3D graphs directly in the browser using WebGL. It supports:&lt;/p>
+&lt;ul>
+&lt;li>Dynamic force simulation&lt;/li>
+&lt;li>Custom node/camera controls&lt;/li>
+&lt;li>Real-time updates&lt;/li>
+&lt;li>Click/touch interactions&lt;/li>
+&lt;/ul>
+&lt;p>Since I&amp;rsquo;m working on visualizing knowledge graphs generated via LLMs, having a 3D layout helps users better understand relationships and hierarchies in a visually rich format.&lt;/p>
+&lt;hr>
+&lt;h2 id="-setting-up-the-nextjs-environment">🛠️ Setting Up the Next.js Environment
+&lt;/h2>&lt;p>I started with a basic &lt;code>create-next-app&lt;/code> setup:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">npx create-next-app@latest graph-visualization
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Then installed the required dependencies:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">npm install three force-graph-3d
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;blockquote>
+&lt;p>💡 &lt;code>force-graph-3d&lt;/code> relies on &lt;strong>Three.js&lt;/strong>, so make sure it&amp;rsquo;s included (either directly or as a peer dependency).&lt;/p>&lt;/blockquote>
+&lt;hr>
+&lt;h2 id="-creating-the-graph-component">📐 Creating the Graph Component
+&lt;/h2>&lt;p>I created a new component called &lt;code>Graph3D.tsx&lt;/code> (or &lt;code>.jsx&lt;/code>) and imported &lt;code>ForceGraph3D&lt;/code> from &lt;code>force-graph-3d&lt;/code>.&lt;/p>
+&lt;p>Here’s a simplified version of the component:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-tsx" data-lang="tsx">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">import&lt;/span> &lt;span class="nx">React&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">useEffect&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">useRef&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="kr">from&lt;/span> &lt;span class="s1">&amp;#39;react&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">import&lt;/span> &lt;span class="nx">ForceGraph3D&lt;/span> &lt;span class="kr">from&lt;/span> &lt;span class="s1">&amp;#39;force-graph-3d&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">const&lt;/span> &lt;span class="nx">Graph3D&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">()&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">containerRef&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">useRef&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">HTMLDivElement&lt;/span>&lt;span class="p">&amp;gt;(&lt;/span>&lt;span class="kc">null&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">useEffect&lt;/span>&lt;span class="p">(()&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="nx">containerRef&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">current&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">return&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// Sample graph data
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kr">const&lt;/span> &lt;span class="nx">graphData&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">nodes&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">[{&lt;/span> &lt;span class="nx">id&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;Node A&amp;#39;&lt;/span> &lt;span class="p">},&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">id&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;Node B&amp;#39;&lt;/span> &lt;span class="p">},&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">id&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;Node C&amp;#39;&lt;/span> &lt;span class="p">}],&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">links&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span> &lt;span class="nx">source&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;Node A&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">target&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;Node B&amp;#39;&lt;/span> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span> &lt;span class="nx">source&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;Node B&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">target&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;Node C&amp;#39;&lt;/span> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">],&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">};&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">Graph&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">ForceGraph3D&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">Graph&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">containerRef&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">current&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="nx">graphData&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">graphData&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="nx">nodeLabel&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;id&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="nx">onNodeClick&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">node&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Clicked node:&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">node&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span> &lt;span class="p">[]);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">ref&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="nx">containerRef&lt;/span>&lt;span class="p">}&lt;/span> &lt;span class="na">style&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">{{&lt;/span> &lt;span class="nx">width&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;100%&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">height&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;80vh&amp;#39;&lt;/span> &lt;span class="p">}}&lt;/span> &lt;span class="p">/&amp;gt;;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">};&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">export&lt;/span> &lt;span class="k">default&lt;/span> &lt;span class="nx">Graph3D&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>This will render a simple 3D force-directed graph inside a div.&lt;/p>
+&lt;hr>
+&lt;h2 id="-running-the-app">🧪 Running the App
+&lt;/h2>&lt;p>After creating the component, I imported and rendered it in the main page (&lt;code>pages/index.tsx&lt;/code>):&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-tsx" data-lang="tsx">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">import&lt;/span> &lt;span class="nx">React&lt;/span> &lt;span class="kr">from&lt;/span> &lt;span class="s1">&amp;#39;react&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">import&lt;/span> &lt;span class="nx">Graph3D&lt;/span> &lt;span class="kr">from&lt;/span> &lt;span class="s1">&amp;#39;../components/Graph3D&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">export&lt;/span> &lt;span class="k">default&lt;/span> &lt;span class="kd">function&lt;/span> &lt;span class="nx">Home() {&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="nx">D&lt;/span> &lt;span class="nx">Graph&lt;/span> &lt;span class="nx">Visualization&lt;/span> &lt;span class="kd">with&lt;/span> &lt;span class="nx">Next&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">js&lt;/span>&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">Graph3D&lt;/span> &lt;span class="p">/&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Now run the dev server:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">npm run dev
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Visit &lt;code>http://localhost:3000&lt;/code>, and you should see an interactive 3D graph spinning in space!&lt;/p>
+&lt;h2 id="-exapmple-screenshot">📷 Exapmple screenshot:
+&lt;/h2>&lt;p>&lt;img src="https://gwzz.github.io/p/graph-visualization/graph-fg3.png"
+width="2238"
+height="1328"
+srcset="https://gwzz.github.io/p/graph-visualization/graph-fg3_hu_f29f3705ff140eca.png 480w, https://gwzz.github.io/p/graph-visualization/graph-fg3_hu_628fce6c67363084.png 1024w"
+loading="lazy"
+alt="A knowledge graph example."
+class="gallery-image"
+data-flex-grow="168"
+data-flex-basis="404px"
+>&lt;/p>
+&lt;hr>
+&lt;h2 id="-challenges-and-considerations">🧩 Challenges and Considerations
+&lt;/h2>&lt;h3 id="1-hydration-issues-in-nextjs">1. &lt;strong>Hydration Issues in Next.js&lt;/strong>
+&lt;/h3>&lt;p>Because &lt;code>force-graph-3d&lt;/code> creates DOM elements outside of React, you might run into hydration mismatches when using SSR. To avoid this, I conditionally render the graph only after mounting on the client side.&lt;/p>
+&lt;h3 id="2-performance--scalability">2. &lt;strong>Performance &amp;amp; Scalability&lt;/strong>
+&lt;/h3>&lt;p>Rendering hundreds or thousands of nodes can get heavy quickly. Optimization techniques like throttling force simulation steps or limiting node rendering radius may be necessary.&lt;/p>
+&lt;h3 id="3-typescript-support">3. &lt;strong>TypeScript Support&lt;/strong>
+&lt;/h3>&lt;p>The current example uses JavaScript, but if you&amp;rsquo;re using TypeScript, you&amp;rsquo;ll need to define types for nodes and links manually or use declaration files.&lt;/p>
+&lt;hr>
+&lt;h2 id="-whats-next">🌱 What’s Next?
+&lt;/h2>&lt;p>This demo serves as a foundation for building more advanced visualizations. Some ideas for future improvements include:&lt;/p>
+&lt;ul>
+&lt;li>Connecting the graph to real LLM-generated knowledge triples&lt;/li>
+&lt;li>Adding tooltip support on hover&lt;/li>
+&lt;li>Enhancing styling with labels, colors, and icons&lt;/li>
+&lt;li>Supporting zoom/pan interaction customization&lt;/li>
+&lt;li>Improving accessibility and responsiveness&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="-conclusion">🧾 Conclusion
+&lt;/h2>&lt;p>Integrating &lt;code>force-graph-3d&lt;/code> into a Next.js project isn&amp;rsquo;t too difficult once you navigate around some SSR quirks. With just a few lines of code, you can start rendering beautiful and interactive 3D graphs right in your React application.&lt;/p>
+&lt;p>As part of my larger &lt;strong>Knowledge Graph + LLM&lt;/strong> project, this visualization layer opens up exciting possibilities for understanding and navigating complex semantic relationships.&lt;/p>
+&lt;p>Let me know if you try this out or have suggestions for improvements!&lt;/p>
+&lt;hr>
+&lt;h2 id="-links">🔗 Links
+&lt;/h2>&lt;ul>
+&lt;li>📦 GitHub Repo: &lt;a class="link" href="https://github.com/gwzz/Knowledge_Graph_X_LLM/tree/main/visulization/graph-visualization" target="_blank" rel="noopener"
+>https://github.com/gwzz/Knowledge_Graph_X_LLM/tree/main/visulization/graph-visualization&lt;/a>&lt;/li>
+&lt;li>📚 &lt;code>force-graph-3d&lt;/code>: &lt;a class="link" href="https://github.com/vasturiano/force-graph" target="_blank" rel="noopener"
+>https://github.com/vasturiano/force-graph&lt;/a>&lt;/li>
+&lt;li>🚀 Next.js Docs: &lt;a class="link" href="https://nextjs.org/docs" target="_blank" rel="noopener"
+>https://nextjs.org/docs&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;hr></description></item></channel></rss>
