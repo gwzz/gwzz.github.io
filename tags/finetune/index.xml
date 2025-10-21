@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Finetune on Gwzz Blog Site</title><link>https://gwzz.github.io/tags/finetune/</link><description>Recent content in Finetune on Gwzz Blog Site</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 04 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://gwzz.github.io/tags/finetune/index.xml" rel="self" type="application/rss+xml"/><item><title>Qwen3 Finetune</title><link>https://gwzz.github.io/p/qwen3-finetune/</link><pubDate>Fri, 04 Jul 2025 00:00:00 +0000</pubDate><guid>https://gwzz.github.io/p/qwen3-finetune/</guid><description>&lt;img src="https://gwzz.github.io/p/qwen3-finetune/qwen3.png" alt="Featured image of post Qwen3 Finetune" /&gt;&lt;h1 id="exploring-llm-training-and-finetuning-with-my-new-project"&gt;Exploring LLM Training and Finetuning with My New Project
+&lt;/h1&gt;&lt;p&gt;In the rapidly evolving world of artificial intelligence and machine learning, large language models (LLMs) have become a cornerstone for various natural language processing tasks. Whether it&amp;rsquo;s chatbots, content generation, translation, or sentiment analysis, LLMs are at the heart of many modern applications.&lt;/p&gt;
+&lt;p&gt;Today, I&amp;rsquo;m excited to introduce my new GitHub project: &lt;strong&gt;&lt;a class="link" href="https://github.com/gwzz/LLM_training_and_finetune" target="_blank" rel="noopener"
+&gt;LLM_training_and_finetune&lt;/a&gt;&lt;/strong&gt; — a repository dedicated to exploring the training and fine-tuning of powerful language models.&lt;/p&gt;
+&lt;h2 id="what-is-this-project-about"&gt;What is This Project About?
+&lt;/h2&gt;&lt;p&gt;The &lt;strong&gt;LLM_training_and_finetune&lt;/strong&gt; project aims to provide a hands-on guide and set of tools for training and customizing large language models. Whether you&amp;rsquo;re just starting out or looking to dive deeper into advanced techniques, this project serves as a foundation for experimenting with different approaches to model training and optimization.&lt;/p&gt;
+&lt;h3 id="key-features"&gt;Key Features
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Scripts and utilities for training large language models from scratch.&lt;/li&gt;
+&lt;li&gt;Fine-tuning strategies for adapting pre-trained models to specific use cases.&lt;/li&gt;
+&lt;li&gt;Support for various frameworks like Hugging Face Transformers, PyTorch, and more.&lt;/li&gt;
+&lt;li&gt;Documentation and examples to help users get started quickly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="why-this-matters"&gt;Why This Matters
+&lt;/h2&gt;&lt;p&gt;As AI becomes more integrated into our daily lives, the ability to tailor these models to fit specific domains or languages becomes increasingly important. By sharing this project, I hope to contribute to the growing community of developers and researchers who are pushing the boundaries of what’s possible with LLMs.&lt;/p&gt;
+&lt;h2 id="getting-started"&gt;Getting Started
+&lt;/h2&gt;&lt;p&gt;If you&amp;rsquo;re interested in exploring how to train or fine-tune language models, here&amp;rsquo;s how you can get started:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Clone the Repository&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git clone https://github.com/gwzz/LLM_training_and_finetune.git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Explore the Folder Structure&lt;/strong&gt;:&lt;br&gt;
+The repository includes detailed directories for datasets, training scripts, configuration files, and documentation.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Follow the Instructions&lt;/strong&gt;:&lt;br&gt;
+Check out the README file for setup instructions, dependencies, and example workflows.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Contribute or Ask Questions&lt;/strong&gt;:&lt;br&gt;
+Feel free to open issues or pull requests if you&amp;rsquo;d like to contribute or need help understanding any part of the code.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="roadmap"&gt;Roadmap
+&lt;/h2&gt;&lt;p&gt;This project is still in its early stages, but I plan to expand it significantly over time:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Adding support for distributed training across multiple GPUs.&lt;/li&gt;
+&lt;li&gt;Incorporating evaluation metrics and benchmarking tools.&lt;/li&gt;
+&lt;li&gt;Providing tutorials on domain-specific fine-tuning (e.g., medical, legal, finance).&lt;/li&gt;
+&lt;li&gt;Sharing insights and best practices learned during experimentation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="final-thoughts"&gt;Final Thoughts
+&lt;/h2&gt;&lt;p&gt;Whether you&amp;rsquo;re a researcher, developer, or enthusiast, I invite you to explore &lt;strong&gt;&lt;a class="link" href="https://github.com/gwzz/LLM_training_and_finetune" target="_blank" rel="noopener"
+&gt;LLM_training_and_finetune&lt;/a&gt;&lt;/strong&gt; and join me in uncovering the potential of large language models. Together, we can build smarter, more efficient systems that adapt to the unique needs of every application.&lt;/p&gt;
+&lt;p&gt;Thank you for reading, and don’t forget to star the repository if you find it useful!&lt;/p&gt;
+&lt;h2 id="still-on-draft-will-update-later"&gt;&lt;em&gt;Still on draft, will update later.&lt;/em&gt;
+&lt;/h2&gt;</description></item></channel></rss>
