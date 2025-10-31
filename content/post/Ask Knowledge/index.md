@@ -1,4 +1,3 @@
-
 ---
 title: Ask Knowledge
 description: Proposal for an LLM-based Chat System with Knowledge Management
