@@ -4,13 +4,13 @@ description: Proposal for an LLM-based Chat System with Knowledge Management
 slug: ask-knowledge
 date: 2025-10-31 00:00:00+0000
 categories:
-	- technology
+    - technology
 tags:
-	- LLM
-	- RAG
-	- knowledge base
-	- chat system
-	- proposal
+    - LLM
+    - RAG
+    - knowledge base
+    - chat system
+    - proposal
 weight: 1
 ---
 
