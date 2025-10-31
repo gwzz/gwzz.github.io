@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Chat System on Gwzz Blog Site</title><link>https://gwzz.github.io/tags/chat-system/</link><description>Recent content in Chat System on Gwzz Blog Site</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 31 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://gwzz.github.io/tags/chat-system/index.xml" rel="self" type="application/rss+xml"/><item><title>Ask Knowledge</title><link>https://gwzz.github.io/p/ask-knowledge/</link><pubDate>Fri, 31 Oct 2025 00:00:00 +0000</pubDate><guid>https://gwzz.github.io/p/ask-knowledge/</guid><description>&lt;h1 id="proposal-building-an-llm-based-chat-system"&gt;Proposal: Building an LLM-based Chat System
+&lt;/h1&gt;&lt;p&gt;This article is a first draft proposal for developing a chat system powered by large language models (LLMs). The goal is to create a flexible, extensible platform that supports advanced knowledge management and retrieval features.&lt;/p&gt;
+&lt;h2 id="key-features"&gt;Key Features
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Retrieval-Augmented Generation (RAG):&lt;/strong&gt; Integrate RAG to enhance the LLM&amp;rsquo;s responses with up-to-date, contextually relevant information from curated sources.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Knowledge Base Management:&lt;/strong&gt; Provide tools for organizing, updating, and querying structured and unstructured knowledge bases.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Graph Visualization:&lt;/strong&gt; Visualize relationships between knowledge entities, supporting better understanding and navigation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Chat Management:&lt;/strong&gt; Enable multi-session, multi-user chat with context retention, history, and user management.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Extensibility:&lt;/strong&gt; Design the system to support plugins or modules for future features (e.g., analytics, custom workflows).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="vision"&gt;Vision
+&lt;/h2&gt;&lt;p&gt;The system aims to bridge the gap between conversational AI and knowledge management, empowering users to interact with complex information through natural language. This proposal outlines the initial scope and invites feedback for future iterations.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;This is a living document and will evolve as the project progresses. Feedback and suggestions are welcome!&lt;/em&gt;&lt;/p&gt;</description></item></channel></rss>
