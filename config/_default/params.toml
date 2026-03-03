@@ -15,11 +15,7 @@ lastUpdated = "Jan 01, 2025 15:04 MST"
 [sidebar]
 emoji = "🌊"
 subtitle = "Know thyself"
-
-[sidebar.avatar]
-enabled = true
-local = true
-src = "img/avatar.png"
+avatar = "img/avatar.png"
 
 [article]
 headingAnchor = false
